@@ -1,4 +1,5 @@
-pull_request:
+on:
+  push:
     branches: [ "main" ]
 
 jobs:
