@@ -1,0 +1,33 @@
+pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Install GCC
+    - name: Install GCC
+      run: sudo apt-get update && sudo apt-get install -y g++
+
+    # Step 3: Build the C++ program
+    - name: Build C++ program
+      run: g++ -o main Main.cpp
+
+    # Step 4: Run the C++ program
+    - name: Run C++ program
+      run: ./main
+
+    # Step 5: Verify the output (Optional)
+    - name: Verify output
+      run: |
+        output=$(./main)
+        if [[ "$output" != "Hello, World!" ]]; then
+          echo "Test failed"
+          exit 1
+        fi
+        echo "Test passed"
