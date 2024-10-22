@@ -1,6 +1,9 @@
 # Use an official OpenJDK runtime as a parent image
 FROM openjdk:11
 
+# Install g++
+RUN apt-get update && apt-get install -y g++
+
 # Set the working directory in the container
 WORKDIR /usr/src/myapp
 
