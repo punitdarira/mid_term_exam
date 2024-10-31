@@ -1,4 +1,4 @@
-# Github webhook trigger 
+# Github webhook trigger  
 
 This repository contains a simple C++ application and a CI/CD pipeline to build and push a Docker image to Azure Container Registry.
 
