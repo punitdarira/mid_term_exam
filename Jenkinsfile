@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build Java Program') {
             steps {
-                sh 'javac Main.java'
+                bat 'javac Main.java'
             }
         }
         stage('Run Java Program') {
             steps {
-                sh 'java Main'
+                bat 'java Main'
             }
         }
     }
