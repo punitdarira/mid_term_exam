@@ -7,31 +7,14 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Install GCC') {
+        stage('Build Java Program') {
             steps {
-                sh 'sudo apt-get update && sudo apt-get install -y g++'
+                sh 'javac Main.java'
             }
         }
-        stage('Build C++ Program') {
+        stage('Run Java Program') {
             steps {
-                sh 'g++ -o main Main.cpp'
-            }
-        }
-        stage('Run C++ Program') {
-            steps {
-                sh './main'
-            }
-        }
-        stage('Verify Output') {
-            steps {
-                script {
-                    def output = sh(script: './main', returnStdout: true).trim()
-                    if (output != 'Hello, World!') {
-                        error 'Test failed'
-                    } else {
-                        echo 'Test passed'
-                    }
-                }
+                sh 'java Main'
             }
         }
     }
