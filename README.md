@@ -2,7 +2,7 @@
 
 This repository contains a simple C++ application and a CI/CD pipeline to build and push a Docker image to Azure Container Registry.
 
-## Repository Structure  
+## Repository Structure   
 . 
     ├── .github │ 
         └── workflows │
